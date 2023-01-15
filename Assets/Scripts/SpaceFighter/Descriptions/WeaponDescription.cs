@@ -14,9 +14,7 @@ namespace SpaceFighter
     public class WeaponDescription : ScriptableObject
     {
         public GameObject bulletPrefub;
-        public BulletDescription bulletDescription;
         public float cooldownAttack;
-        public float bulletSpeed;
         public WeaponType weaponType;
     }
 }
