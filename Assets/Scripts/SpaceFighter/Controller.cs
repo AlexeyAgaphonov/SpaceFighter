@@ -5,7 +5,6 @@ namespace SpaceFighter
     public class Controller : MonoBehaviour
     {
         [SerializeField] private GameObject _pawnGameObject;
-        private Rigidbody2D _pawnRigidbody;
 
         [SerializeField] private float _maxSpeed = 5.0f;
         [SerializeField] private float _smoothTime = 0.1f;
@@ -20,8 +19,7 @@ namespace SpaceFighter
             {
                 _pawnGameObject = transform.parent.gameObject;
             }
-            _pawnRigidbody = _pawnGameObject.GetComponent<Rigidbody2D>();
-            _targetPosition = _pawnRigidbody.position;
+            _targetPosition = _pawnGameObject.transform.position;
         }
 
         private void Update()

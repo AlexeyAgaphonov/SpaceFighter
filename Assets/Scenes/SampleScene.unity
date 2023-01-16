@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 520440548}
   - component: {fileID: 520440547}
   - component: {fileID: 520440549}
-  - component: {fileID: 520440550}
   m_Layer: 0
   m_Name: SpaceFighter
   m_TagString: Untagged
@@ -496,27 +495,6 @@ PolygonCollider2D:
       - {x: -1.37, y: -4.765}
       - {x: -1.1899999, y: -4.185}
       - {x: -1.14, y: -4.055}
---- !u!50 &520440550
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520440546}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.656711
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &656106879
 GameObject:
   m_ObjectHideFlags: 0
