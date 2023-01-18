@@ -9,5 +9,6 @@ namespace SpaceFighter
     {
         public float speed;
         public float lifetime;
+        public float damage;
     }
 }

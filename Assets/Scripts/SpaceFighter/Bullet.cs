@@ -26,6 +26,21 @@ namespace SpaceFighter
 
             transform.position = transform.position + new Vector3(_direction.x, _direction.y, 0f) * Time.deltaTime * _bulletDescription.speed;
         }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (IsCollisionWithRightObject(collider))
+            {
+                var entity = collider.gameObject.GetComponent<Entity>();
+                entity.ApplyDamage(_bulletDescription.damage);
+            }
+        }
+
+        private bool IsCollisionWithRightObject(Collider2D collider)
+        {
+            return (collider.gameObject.CompareTag("Enemy") || collider.gameObject.CompareTag("Player"))
+                && !CompareTag(collider.gameObject.tag);
+        }
     }
 
 }

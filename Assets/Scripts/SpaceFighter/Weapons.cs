@@ -48,6 +48,7 @@ namespace SpaceFighter
 
             //Vector3 position, Quaternion rotation, Transform parent
             var newGO = Instantiate(weaponDescription.bulletPrefub, transform.position, new Quaternion(), _bulletsGameObject.transform);
+            newGO.tag = tag;
             weapon.Reload();
         }
     }
