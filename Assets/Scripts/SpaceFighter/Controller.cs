@@ -22,8 +22,28 @@ namespace SpaceFighter
             _targetPosition = _pawnGameObject.transform.position;
         }
 
+        private void Start()
+        {
+            var weapons = transform.parent.Find("Weapons")?.GetComponent<Weapons>();
+            if (weapons != null)
+            {
+                Events.Instance.PressFire.AddListener(weapons.StartFiring);
+                Events.Instance.ReleaseFire.AddListener(weapons.FinishFiring);
+            }
+            
+        }
+
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Events.Instance.PressFire.Invoke();
+            }
+            else if (Input.GetMouseButtonUp(0)) 
+            {
+                Events.Instance.ReleaseFire.Invoke();
+            }
+
             if(Input.GetMouseButton(0))
             {
                 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

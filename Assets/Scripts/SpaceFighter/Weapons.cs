@@ -12,6 +12,9 @@ namespace SpaceFighter
 
         private List<Weapon> _weapons;
 
+        [SerializeField] private bool _isFiring;
+        public bool IsFiring => _isFiring;
+
         private void Start()
         {
             _weapons = new List<Weapon>();
@@ -34,7 +37,7 @@ namespace SpaceFighter
             if (weapon != null)
             {
                 weapon.Update(Time.deltaTime);
-                if (weapon.IsReadyToFire())
+                if (IsFiring && weapon.IsReadyToFire())
                 {
                     Fire(weapon);
                 }
@@ -50,6 +53,16 @@ namespace SpaceFighter
             var newGO = Instantiate(weaponDescription.bulletPrefub, transform.position, new Quaternion(), _bulletsGameObject.transform);
             newGO.tag = tag;
             weapon.Reload();
+        }
+
+        public void StartFiring()
+        {
+            _isFiring = true;
+        }
+
+        public void FinishFiring()
+        {
+            _isFiring = false;
         }
     }
 } 
