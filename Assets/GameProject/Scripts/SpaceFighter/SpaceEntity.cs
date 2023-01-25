@@ -7,8 +7,9 @@ namespace SpaceFighter
     [RequireComponent(typeof(Rigidbody2D))]
     public class SpaceEntity : MonoBehaviour
     {
-        [SerializeField] private float _maximumHP = 1;
-        [SerializeField] private float _currentHP = 1;
+        [SerializeField] 
+        private float _maximumHP = 1;
+        private float _currentHP = 1;
 
         [SerializeField] private Rigidbody2D _rigidbody;
 

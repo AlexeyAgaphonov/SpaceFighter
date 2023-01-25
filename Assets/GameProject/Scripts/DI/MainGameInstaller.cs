@@ -15,6 +15,15 @@ public class MainGameInstaller : MonoInstaller
 
         Container.Bind<SpaceFighter.InputEvents>().WithId("SpaceFighterEvents").FromInstance(_events);
 
-        
+        Container.Bind<GameObject>().WithId("ParentGameObject").FromMethod(SetParent);
+    }
+
+    private GameObject SetParent(InjectContext context)
+    {
+        if (context.ObjectInstance is Component)
+        {
+            return ((Component)context.ObjectInstance).transform.parent.gameObject;
+        }
+        return null;
     }
 }

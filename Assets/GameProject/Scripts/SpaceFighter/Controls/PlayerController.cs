@@ -1,12 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
+
 namespace SpaceFighter
 {
-    public class Controller : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IController
     {
-        [Inject(Id = "SpaceFighterEvents")] InputEvents _events;
-        [SerializeField] private GameObject _pawnGameObject;
+        [Inject(Id = "SpaceFighterEvents")] 
+        private InputEvents _events;
+
+        [Inject(Id = "ParentGameObject")]
+        private GameObject _pawnGameObject;
 
         [SerializeField] private float _maxSpeed = 5.0f;
         [SerializeField] private float _smoothTime = 0.1f;
@@ -32,7 +38,7 @@ namespace SpaceFighter
                 _events.PressFire.AddListener(weapons.StartFiring);
                 _events.ReleaseFire.AddListener(weapons.FinishFiring);
             }
-            
+
         }
 
         private void Update()
@@ -41,12 +47,12 @@ namespace SpaceFighter
             {
                 _events.PressFire.Invoke();
             }
-            else if (Input.GetMouseButtonUp(0)) 
+            else if (Input.GetMouseButtonUp(0))
             {
                 _events.ReleaseFire.Invoke();
             }
 
-            if(Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0))
             {
                 _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }

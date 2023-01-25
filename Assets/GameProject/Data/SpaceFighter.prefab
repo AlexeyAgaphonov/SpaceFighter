@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1717994830789584904}
-  - component: {fileID: 1717994830789584905}
+  - component: {fileID: 2494459205880671077}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Player
@@ -358,7 +358,7 @@ Transform:
   m_Father: {fileID: 1717994829850707820}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1717994830789584905
+--- !u!114 &2494459205880671077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,10 +367,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1717994830789585143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47107ded732d166458f0ed208eb0e150, type: 3}
+  m_Script: {fileID: 11500000, guid: bd2342a81772caa4abc7872f41b6b72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pawnGameObject: {fileID: 1717994829850707818}
   _maxSpeed: 5
   _smoothTime: 0.1
 --- !u!1 &1717994830868559711
@@ -417,6 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e59ecb3e8348854ead47de236b6ed54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletsGameObject: {fileID: 0}
   _weaponDescriptions:
   - {fileID: 11400000, guid: df2549ea2f0ea4244a0ad688ae6580d3, type: 2}
+  _isFiring: 0
