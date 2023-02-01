@@ -303,7 +303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maximumHP: 1
-  _currentHP: 1
   _rigidbody: {fileID: 0}
 --- !u!50 &1758955782845958733
 Rigidbody2D:
