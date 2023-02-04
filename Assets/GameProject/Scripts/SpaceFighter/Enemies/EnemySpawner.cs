@@ -8,8 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [Inject(Id = "MeteorPrefub")]
     private GameObject _meteorPrefub;
 
-    [Inject(Id = "EnemiesContainer")]
-    private GameObject _enemiesContainer;
+    [Inject]
+    private DI.EnemyFactory _enemyFactory;
 
     private float _spawnTimer = 0f;
 
@@ -47,9 +47,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemyPrefub)
     {
-        var enemy = _container.InstantiatePrefab(_meteorPrefub);
-        enemy.transform.parent = _enemiesContainer.transform;
-        enemy.transform.position = GetRandomPointInBoxCollider2D();
+        _enemyFactory.Create(_meteorPrefub, GetRandomPointInBoxCollider2D());
     }
 
     public Vector2 GetRandomPointInBoxCollider2D()

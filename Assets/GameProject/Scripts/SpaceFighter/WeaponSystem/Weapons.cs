@@ -12,6 +12,9 @@ namespace SpaceFighter
         [Inject (Id = "BulletsContainer")] GameObject _bulletsGameObject;
         [SerializeField] WeaponDescription[] _weaponDescriptions;
 
+        [Inject]
+        DI.BulletFactory _bulletFactory;
+
         private List<Weapon> _weapons;
 
         [SerializeField] private bool _isFiring;
@@ -48,12 +51,8 @@ namespace SpaceFighter
 
         void Fire(Weapon weapon)
         {
-            Debug.Log("Fire");
             var weaponDescription = weapon.GetDescription();
-
-            //Vector3 position, Quaternion rotation, Transform parent
-            var newGO = Instantiate(weaponDescription.bulletPrefub, transform.position, new Quaternion(), _bulletsGameObject.transform);
-            newGO.tag = tag;
+            _bulletFactory.Create(tag, transform.position, Vector2.up, weaponDescription.bulletPrefub);
             weapon.Reload();
         }
 
