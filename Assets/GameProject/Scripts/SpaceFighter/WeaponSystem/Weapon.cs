@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 namespace SpaceFighter
 {
     public class Weapon

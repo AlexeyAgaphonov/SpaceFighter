@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace SpaceFighter
 {
     [RequireComponent(typeof(Rigidbody2D))]

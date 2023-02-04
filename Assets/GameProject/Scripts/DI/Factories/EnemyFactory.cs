@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
+
 namespace DI
 {
     public class EnemyFactory : IFactory<GameObject, Vector2, GameObject>

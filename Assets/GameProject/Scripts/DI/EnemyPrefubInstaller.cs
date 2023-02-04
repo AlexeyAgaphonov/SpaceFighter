@@ -1,13 +1,17 @@
 using UnityEngine;
 using Zenject;
 
-public class EnemyPrefubInstaller : MonoInstaller
-{
-    [SerializeField]
-    private GameObject _meteorPrefub;
 
-    public override void InstallBindings()
+namespace DI
+{
+    public class EnemyPrefubInstaller : MonoInstaller
     {
-        Container.Bind<GameObject>().WithId("MeteorPrefub").FromInstance(_meteorPrefub);
+        [SerializeField]
+        private GameObject _meteorPrefub;
+
+        public override void InstallBindings()
+        {
+            Container.Bind<GameObject>().WithId("MeteorPrefub").FromInstance(_meteorPrefub);
+        }
     }
 }

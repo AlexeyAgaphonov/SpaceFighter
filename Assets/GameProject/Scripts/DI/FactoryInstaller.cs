@@ -2,12 +2,15 @@ using UnityEngine;
 using Zenject;
 
 
-
-public class FactoryInstaller : MonoInstaller
+namespace DI
 {
-    public override void InstallBindings()
+    public class FactoryInstaller : MonoInstaller
     {
-        Container.Bind<DI.BulletFactory>().To<DI.BulletFactory>().AsSingle();
-        Container.Bind<DI.EnemyFactory>().To<DI.EnemyFactory>().AsSingle();
+        public override void InstallBindings()
+        {
+            Container.Bind<BulletFactory>().To<BulletFactory>().AsSingle();
+
+            Container.Bind<EnemyFactory>().To<EnemyFactory>().AsSingle();
+        }
     }
 }

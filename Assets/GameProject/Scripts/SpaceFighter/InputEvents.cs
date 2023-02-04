@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 namespace SpaceFighter
 {
     public class InputEvents : MonoBehaviour

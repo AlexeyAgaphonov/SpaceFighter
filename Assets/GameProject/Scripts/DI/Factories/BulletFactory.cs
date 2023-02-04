@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
+
 namespace DI
 {
     public class BulletFactory : IFactory<string, Vector2, Vector2, GameObject, GameObject>

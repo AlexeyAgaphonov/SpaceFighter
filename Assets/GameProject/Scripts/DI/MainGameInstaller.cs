@@ -3,29 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class MainGameInstaller : MonoInstaller
+
+namespace DI
 {
-    [SerializeField] private GameObject _bulletsContainer;
-    [SerializeField] private GameObject _enemiesContainer;
-    [SerializeField] private SpaceFighter.InputEvents _events;
-
-    public override void InstallBindings()
+    public class MainGameInstaller : MonoInstaller
     {
-        Container.Bind<GameObject>().WithId("BulletsContainer").FromInstance(_bulletsContainer);
+        [SerializeField] private GameObject _bulletsContainer;
+        [SerializeField] private GameObject _enemiesContainer;
+        [SerializeField] private SpaceFighter.InputEvents _events;
 
-        Container.Bind<GameObject>().WithId("EnemiesContainer").FromInstance(_enemiesContainer);
-
-        Container.Bind<SpaceFighter.InputEvents>().WithId("SpaceFighterEvents").FromInstance(_events);
-
-        Container.Bind<GameObject>().WithId("ParentGameObject").FromMethod(SetParent);
-    }
-
-    private GameObject SetParent(InjectContext context)
-    {
-        if (context.ObjectInstance is Component)
+        public override void InstallBindings()
         {
-            return ((Component)context.ObjectInstance).transform.parent.gameObject;
+            Container.Bind<GameObject>().WithId("BulletsContainer").FromInstance(_bulletsContainer);
+
+            Container.Bind<GameObject>().WithId("EnemiesContainer").FromInstance(_enemiesContainer);
+
+            Container.Bind<SpaceFighter.InputEvents>().WithId("SpaceFighterEvents").FromInstance(_events);
+
+            Container.Bind<GameObject>().WithId("ParentGameObject").FromMethod(SetParent);
         }
-        return null;
+
+        private GameObject SetParent(InjectContext context)
+        {
+            if (context.ObjectInstance is Component)
+            {
+                return ((Component)context.ObjectInstance).transform.parent.gameObject;
+            }
+            return null;
+        }
     }
 }

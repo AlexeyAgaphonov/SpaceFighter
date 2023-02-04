@@ -4,7 +4,6 @@ using UnityEngine;
 using Zenject;
 
 
-
 namespace SpaceFighter
 {
     public class Weapons : MonoBehaviour
