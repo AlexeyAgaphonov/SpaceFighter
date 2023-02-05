@@ -14,15 +14,23 @@ namespace SpaceFighter
 
         [SerializeField] private Rigidbody2D _rigidbody;
 
+        private Rotator _rotator;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _rotator = new Rotator(transform);
         }
 
         public void Start()
         {
             _currentHP = _maximumHP;
             _rigidbody.gravityScale = 0f;
+        }
+
+        private void Update()
+        {
+            _rotator.Update();
         }
 
         public void ApplyDamage(float damage)
