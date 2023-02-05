@@ -30,7 +30,6 @@ namespace SpaceFighter
                 _transform.Rotate(Vector3.up, 30);
             }
 
-
             _previousPosition = newPosition;
         }
     };

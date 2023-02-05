@@ -11,6 +11,9 @@ namespace SpaceFighter
         [SerializeField] private BulletDescription _bulletDescription;
         private float _lifeTimer = 0.0f;
 
+        [SerializeField]
+        private uint _restCollideLifes = 1;
+
         public void Initialize(BulletDescription bulletDescription, Vector2 direction)
         {
             _bulletDescription = bulletDescription;
@@ -33,6 +36,15 @@ namespace SpaceFighter
             {
                 var entity = collider.gameObject.GetComponent<SpaceEntity>();
                 entity.ApplyDamage(_bulletDescription.damage);
+
+                if (_restCollideLifes > 0)
+                {
+                    _restCollideLifes -= 1;
+                }
+                if (_restCollideLifes == 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
