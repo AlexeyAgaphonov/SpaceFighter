@@ -11,6 +11,8 @@ namespace DI
             Container.Bind<BulletFactory>().To<BulletFactory>().AsSingle();
 
             Container.Bind<EnemyFactory>().To<EnemyFactory>().AsSingle();
+
+            Container.Bind<WeaponFactory>().To<WeaponFactory>().AsSingle();
         }
     }
 }

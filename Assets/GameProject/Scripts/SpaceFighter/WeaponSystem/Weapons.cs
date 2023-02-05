@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DI;
 using UnityEngine;
 using Zenject;
 
@@ -12,7 +13,10 @@ namespace SpaceFighter
         [SerializeField] WeaponDescription[] _weaponDescriptions;
 
         [Inject]
-        DI.BulletFactory _bulletFactory;
+        readonly DI.BulletFactory _bulletFactory;
+
+        [Inject]
+        readonly DI.WeaponFactory _weaponFactory;
 
         private List<Weapon> _weapons;
 
@@ -24,7 +28,8 @@ namespace SpaceFighter
             _weapons = new List<Weapon>();
             foreach(var weaponDescription in _weaponDescriptions)
             {
-                _weapons.Add(new Weapon(weaponDescription));
+                var weapon = _weaponFactory.Create(weaponDescription);
+                _weapons.Add(weapon);
             }
         }
 
