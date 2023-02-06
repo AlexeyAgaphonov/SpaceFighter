@@ -15,11 +15,15 @@ namespace SpaceFighter
         [SerializeField]
         private float _movementSpeed = 5f;
 
+        public void Initialize(float movementSpeed)
+        {
+            _movementSpeed = movementSpeed;
+        }
+        
         private void Update()
         {
             var currentPosition = _pawnGameObject.transform.position;
             _pawnGameObject.transform.position = currentPosition + _movementSpeed * Time.deltaTime * Vector3.down;
         }
     }
-
 }

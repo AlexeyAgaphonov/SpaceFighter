@@ -20,12 +20,12 @@ namespace SpaceFighter
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rotator = new Rotator(transform);
+            _rigidbody.gravityScale = 0f;
         }
 
         public void Start()
         {
             _currentHP = _maximumHP;
-            _rigidbody.gravityScale = 0f;
         }
 
         private void Update()

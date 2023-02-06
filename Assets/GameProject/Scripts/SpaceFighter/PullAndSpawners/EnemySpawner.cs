@@ -50,7 +50,7 @@ namespace SpaceFighter
 
         private void SpawnEnemy(GameObject enemyPrefub)
         {
-            _enemyFactory.Create(_meteorPrefub, GetRandomPointInBoxCollider2D());
+            var enemy = _enemyFactory.Create(_meteorPrefub, GetRandomPointInBoxCollider2D());
         }
 
         private Vector2 GetRandomPointInBoxCollider2D()
