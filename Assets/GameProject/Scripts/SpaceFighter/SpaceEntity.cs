@@ -36,7 +36,7 @@ namespace SpaceFighter
         public void ApplyDamage(float damage)
         {
             _currentHP -= damage;
-            if (_currentHP < 0 )
+            if (_currentHP <= 0 )
             {
                 _currentHP = 0;
                 Perish();
