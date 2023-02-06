@@ -14,7 +14,7 @@ namespace SpaceFighter
         [Inject]
         private DI.EnemyFactory _enemyFactory;
 
-        private float _spawnTimer = 0f;
+        private float _spawnTimer;
 
         [SerializeField]
         private float _spawnCooldown = 2f;
@@ -53,11 +53,11 @@ namespace SpaceFighter
             _enemyFactory.Create(_meteorPrefub, GetRandomPointInBoxCollider2D());
         }
 
-        public Vector2 GetRandomPointInBoxCollider2D()
+        private Vector2 GetRandomPointInBoxCollider2D()
         {
-            Vector2 size = _spawnArea.size;
-            Vector2 center = (Vector2)_spawnArea.transform.position + _spawnArea.offset;
-            Vector2 randomPoint = center + new Vector2(
+            var size = _spawnArea.size;
+            var center = (Vector2)_spawnArea.transform.position + _spawnArea.offset;
+            var randomPoint = center + new Vector2(
                 (Random.value - 0.5f) * size.x,
                 (Random.value - 0.5f) * size.y
             );
