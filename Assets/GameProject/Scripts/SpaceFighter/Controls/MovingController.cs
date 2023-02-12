@@ -24,6 +24,10 @@ namespace SpaceFighter
         {
             var currentPosition = _pawnGameObject.transform.position;
             _pawnGameObject.transform.position = currentPosition + _movementSpeed * Time.deltaTime * Vector3.down;
+            if (_pawnGameObject.transform.position.y < -6f)
+            {
+                Destroy(_pawnGameObject);
+            }
         }
     }
 }
