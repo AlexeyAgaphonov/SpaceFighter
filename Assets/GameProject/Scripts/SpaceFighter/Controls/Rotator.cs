@@ -8,6 +8,7 @@ namespace SpaceFighter
     {
         Transform _transform;
         Vector3 _previousPosition;
+        float _angle = 15;
 
         public Rotator(Transform transform)
         {
@@ -23,11 +24,11 @@ namespace SpaceFighter
             _transform.rotation = new Quaternion();
             if (placeholder && diff > 0)
             {
-                _transform.Rotate(Vector3.up, -30);
+                _transform.Rotate(Vector3.up, -_angle);
             }
             else if (placeholder && diff < 0)
             {
-                _transform.Rotate(Vector3.up, 30);
+                _transform.Rotate(Vector3.up, _angle);
             }
 
             _previousPosition = newPosition;
